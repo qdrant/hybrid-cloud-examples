@@ -1,0 +1,42 @@
+# Compiled files
+**/*.tfstate
+**/*.tfstate.backup
+**/*.tfstate.*.backup
+**/*.lock.hcl
+# Module directory
+.terraform/
+**/**kubeconfig
+# Things not to be committed
+# terraform/*/secrets/*
+# terraform/service_accounts/
+
+### IntelliJ IDEA ###
+.idea
+*.iml
+
+# Pycharm plugin
+**/.idea
+
+.DS_Store
+
+.vscode/
+
+# Python virtual environments
+venv/
+
+# jupyter/on_call_scheduling
+jupyter/on_call_scheduling/credentials.json
+jupyter/on_call_scheduling/token.pickle
+
+# jupyter/jira
+jupyter/jira/credentials.json
+jupyter/jira/google_token.pickle
+jupyter/jira/jira_privatekey.pcks8
+jupyter/jira/jira_privatekey.pem
+jupyter/jira/jira_publickey.cer
+jupyter/jira/jira_publickey.pem
+jupyter/jira/token.pickle
+
+# git-crypt
+git-crypt.key
+
