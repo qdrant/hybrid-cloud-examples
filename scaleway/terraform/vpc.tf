@@ -5,12 +5,9 @@ resource "scaleway_vpc_private_network" "this" {
   ipv4_subnet {
     subnet = var.subnet_cidr
   }
-  project_id = var.project_id
 }
 
 resource "scaleway_vpc" "this" {
   name = var.cluster_name
   tags = var.tags
-  region = var.region
-  project_id = var.project_id
 }

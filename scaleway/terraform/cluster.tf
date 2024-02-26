@@ -4,7 +4,6 @@ resource "scaleway_k8s_cluster" "this" {
   cni     = var.cni
   private_network_id = scaleway_vpc_private_network.this.id
   delete_additional_resources = var.delete_additional_resources
-  project_id = var.project_id
   tags = var.tags
   depends_on = [scaleway_vpc_private_network.this]
 }
