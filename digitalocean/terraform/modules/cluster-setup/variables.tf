@@ -59,7 +59,7 @@ variable "auto_scale" {
 }
 
 variable "max_nodes" {
-  default     = 10
+  default     = 9
   type        = string
   description = "Autoscaling maximum node capacity"
 }
@@ -86,3 +86,17 @@ variable "size" {
 }
 
 
+
+variable "node_pools" {
+  description = "Addons node pools"
+  type = map(object({
+    size        = string
+    node_count  = number
+    auto_scale  = bool
+    min_nodes   = number
+    max_nodes   = number
+    node_tags   = list(string)
+    node_labels = map(string)
+  }))
+  default = {}
+}

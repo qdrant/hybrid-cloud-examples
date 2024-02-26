@@ -1,6 +1,15 @@
 # Custer and network setup
 This module is for baisic setup VPC and k8s cluster in DigitalOcean project. 
 It is used for Qdrant Cloud hybrid vector database setup example.
+### Example of usage: 
+```hcl
+module "test-cluster" {
+  source = "./cluster-setup"
+
+  cluster_name = "qdrant-example"
+  vpc_name     = "qdrant-example"
+}
+```
 
 ## Requirements
 

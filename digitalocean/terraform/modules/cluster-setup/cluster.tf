@@ -10,7 +10,7 @@ resource "digitalocean_kubernetes_cluster" "qdrant_example" {
 
   node_pool {
     name       = format("%s-core", var.cluster_name)
-    size       = element(data.digitalocean_sizes.k8s.sizes, 0).slug
+    size       = var.size
     auto_scale = var.auto_scale
     min_nodes  = var.min_nodes
     max_nodes  = var.max_nodes
