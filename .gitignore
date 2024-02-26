@@ -4,6 +4,7 @@
 **/*.tfstate.*.backup
 **/*.lock.hcl
 # Module directory
+.terraform*
 .terraform/
 **/**kubeconfig
 # Things not to be committed

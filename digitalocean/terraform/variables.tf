@@ -1,13 +1,13 @@
 variable "vpc_name" {
   description = "Cluster name"
   type        = string
-  default     = "qdrant-example"
+  default     = "qdrant-hybrid-example"
 }
 
 variable "cluster_name" {
   description = "Cluster name"
   type        = string
-  default     = "qdrant-example"
+  default     = "qdrant-hybrid-example"
 }
 
 variable "region" {
@@ -82,7 +82,7 @@ variable "node_tags" {
 variable "size" {
   type        = string
   description = "The slug identifier for the type of Droplet to be used as workers in the node pool."
-  default     = "s-1vcpu-2gb"
+  default     = "s-4vcpu-8gb"
 }
 
 
