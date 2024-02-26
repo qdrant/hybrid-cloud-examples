@@ -61,3 +61,8 @@ variable "access_key" {
   description = "Scaleway access key"
   type = string
 }
+
+variable "project_id" {
+  description = "Project ID"
+  type = string
+}
