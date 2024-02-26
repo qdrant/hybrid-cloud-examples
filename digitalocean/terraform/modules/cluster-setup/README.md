@@ -1,5 +1,5 @@
 # Custer and network setup
-This module is for baisic setup VPC and k8s cluster in DigitalOcean project. 
+This module is for a basic VPC and k8s cluster setup in a DigitalOcean project. 
 It is used for Qdrant Cloud hybrid vector database setup example.
 ### Example of usage: 
 ```hcl
