@@ -100,3 +100,8 @@ variable "node_pools" {
   }))
   default = {}
 }
+
+variable "do_token" {
+  type = string
+  description = "Provide a token to access Digital Ocean"
+}
