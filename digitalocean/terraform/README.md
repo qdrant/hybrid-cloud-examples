@@ -45,6 +45,7 @@ No modules.
 | <a name="input_size"></a> [size](#input\_size) | The slug identifier for the type of Droplet to be used as workers in the node pool. | `string` | `"s-4vcpu-8gb"` | no |
 | <a name="input_surge_upgrade"></a> [surge\_upgrade](#input\_surge\_upgrade) | Enable/disable surge upgrades for a cluster | `bool` | `false` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | The list of instance tags applied to the cluster. | `list(any)` | <pre>[<br>  "qdrant"<br>]</pre> | no |
+| <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | CIDR renage for VPC | `string` | `"10.10.0.0/16"` | no |
 | <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | Cluster name | `string` | `"qdrant-hybrid-example"` | no |
 
 ## Outputs

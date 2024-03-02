@@ -50,5 +50,8 @@ tags = [
   "qdrant"
 ]
 
+# CIDR renage for VPC
+vpc_cidr = "10.10.0.0/16"
+
 # Cluster name
 vpc_name = "qdrant-hybrid-example"

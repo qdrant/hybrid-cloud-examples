@@ -4,6 +4,12 @@ variable "vpc_name" {
   default     = "qdrant-hybrid-example"
 }
 
+variable "vpc_cidr" {
+  default     = "10.10.0.0/16"
+  type        = string
+  description = "CIDR renage for VPC"
+}
+
 variable "cluster_name" {
   description = "Cluster name"
   type        = string
@@ -102,6 +108,6 @@ variable "node_pools" {
 }
 
 variable "do_token" {
-  type = string
+  type        = string
   description = "Provide a token to access Digital Ocean"
 }
