@@ -36,3 +36,9 @@ data "digitalocean_sizes" "k8s" {
   }
 
 }
+
+
+resource "local_file" "kubeconfig" {
+  content  = digitalocean_kubernetes_cluster.qdrant_example.kube_config.0.raw_config
+  filename = "kubeconfig"
+}
