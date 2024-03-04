@@ -61,12 +61,12 @@ resource "google_container_node_pool" "additional" {
     image_type   = each.value.image_type
 
     labels = each.value.labels
-    dynamic "taint"  {
+    dynamic "taint" {
       for_each = each.value.taint
       content {
-               key    = each.value.taint.key
-               value  = each.value.taint.value
-               effect = each.value.taint.effect
+        key    = each.value.taint.key
+        value  = each.value.taint.value
+        effect = each.value.taint.effect
       }
     }
 

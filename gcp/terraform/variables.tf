@@ -1,25 +1,25 @@
 variable "env" {
-  type = string
-  default = "stg"
+  type        = string
+  default     = "stg"
   description = "Environment sort name"
 }
 
 variable "region" {
-  type = string
+  type        = string
   description = "Google cloud region"
-  default = "europe-west1"
+  default     = "europe-west1"
 }
 
 
 variable "project_id" {
-  type = string
+  type        = string
   description = "Google cloud Project ID"
 }
 
 variable "network_name" {
   type        = string
   description = "Name of the VPC network"
-  default = "qdrant-example"
+  default     = "qdrant-example"
 }
 
 variable "ssh_ingress_range" {
@@ -41,8 +41,8 @@ variable "nat_ip_count" {
 }
 
 variable "nat_ip_allocate_option" {
-  type    = string
-  default = "MANUAL_ONLY"
+  type        = string
+  default     = "MANUAL_ONLY"
   description = "Dynamic or manual  NATs IPs allocation for cloud router"
 }
 
@@ -101,13 +101,13 @@ variable "subnets" {
       subnet_flow_logs_metadata = "INCLUDE_ALL_METADATA"
       subnet_flow_logs          = "false"
       subnet_private_access     = "true"
-    }]
+  }]
 }
 
 variable "secondary_ranges" {
-  type    = map(list(object({ range_name = string, ip_cidr_range = string })))
+  type        = map(list(object({ range_name = string, ip_cidr_range = string })))
   description = "Secondary ranges that will be used in some of the subnets"
-  default = {}
+  default     = {}
 }
 
 variable "ingress_rules" {
@@ -187,7 +187,7 @@ variable "initial_node_count" {
 variable "master_ipv4_cidr_block" {
   description = "The IP range in CIDR notation to use for the hosted master network. This range must not overlap with any other ranges in use within the cluster's network, and it must be a /28 subnet"
   type        = string
-  default = "172.16.0.0/28"
+  default     = "172.16.0.0/28"
 }
 variable "min_master_version" {
   description = "The minimum version of the master"
@@ -235,13 +235,13 @@ variable "additional_node_pool" {
 }
 
 variable "master_authorized_networks" {
-  type    = list(any)
+  type        = list(any)
   description = "List of CIDRs allowd to connect to GKE cluster"
-  default = []
+  default     = []
 }
 
 variable "allowed_ips_to_k8s" {
-  type = list(string)
-  default = []
+  type        = list(string)
+  default     = []
   description = "List of individual IPs allowd to connect GKE cluster"
 }
