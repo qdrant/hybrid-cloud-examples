@@ -24,9 +24,9 @@ After cluster is ready login to https://cloud.qdrant.io/
 - Create a "Private region", pick a name and a Kubernetes namespace. All other settings should be able to stay as default
 - Click 'Generate installation Command' button. It will generate `kubectl` and `helm` commands like this: 
 ``` bash
-kubectl create namespace delete-me
-kubectl --namespace delete-me create secret docker-registry qdrant-registry-creds
-kubectl --namespace delete-me create secret generic qdrant-cloud-creds --from-literal=access-key='*'
+kubectl create namespace qdrant
+kubectl --namespace qdrant create secret docker-registry qdrant-registry-creds
+kubectl --namespace qdrant create secret generic qdrant-cloud-creds --from-literal=access-key='*'
 helm install qdrant-cloud-agent
 ```
 - Execute this against the created Kubernetes cluster to deploy the Qdrant cloud agent and Qdrant operator
