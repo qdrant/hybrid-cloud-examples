@@ -1,9 +1,9 @@
-# Qdrant Hybrid Cloud Example for DigitalOcean
+# Qdrant Hybrid Cloud Example for Scaleway
 
-Example how to use DigitalOcean k8s cluster as private region for hybrid qdrant cloud. 
+Example how to use Scaleway k8s cluster as private region for hybrid qdrant cloud. 
 
 ### Apply terraform
-This terraform code is for a basic VPC and k8s cluster setup in a DigitalOcean project.
+This terraform code is for a basic VPC and k8s cluster setup in a Scaleway project.
 It is used for Qdrant Cloud hybrid vector database setup example.
 - Go to `terraform` folder and run:
   - `terraform init`
