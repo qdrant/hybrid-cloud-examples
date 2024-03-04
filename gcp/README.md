@@ -1,19 +1,27 @@
-# Qdrant Hybrid Cloud Example for DigitalOcean
+# Qdrant Hybrid Cloud Example for Google Cloud
 
-Example how to use DigitalOcean k8s cluster as private region for hybrid qdrant cloud.
+Example how to use Google GLoud k8s cluster (GKE) as private region for hybrid qdrant cloud. 
 
+### Prerequisites 
+
+ - You have [installed](https://cloud.google.com/sdk/docs/install) `gloud` cli tool
+ - You configure `gcloud`
+   - `gcloud init` 
+   - ` gcloud auth application-default login --project <your-project-name>`
+ - 
 ### Apply terraform
-This terraform code is for a basic VPC and k8s cluster setup in a DigitalOcean project.
+This terraform code is for a basic VPC and k8s cluster setup in a GCP project.
 It is used for Qdrant Cloud hybrid vector database setup example.
-- Go to `terraform` folder and run:
-    - `terraform init`
-    - `terraform apply`
 
-### Setup Private region
+- Go to `terraform` folder and run:
+  - `terraform init`
+  - `terraform apply`
+
+### Setup Private region 
 After cluster is ready login to https://cloud.qdrant.io/
 - Go to "Private regions"
 - Create a "Private region", pick a name and a Kubernetes namespace. All other settings should be able to stay as default
-- Click 'Generate installation Command' button. It will generate `kubectl` and `helm` commands like this:
+- Click 'Generate installation Command' button. It will generate `kubectl` and `helm` commands like this: 
 ``` bash
 kubectl create namespace delete-me
 kubectl --namespace delete-me create secret docker-registry qdrant-registry-creds
@@ -23,8 +31,8 @@ helm install qdrant-cloud-agent
 - Execute this against the created Kubernetes cluster to deploy the Qdrant cloud agent and Qdrant operator
 - The agent should connect back to Qdrant cloud, install the operator and report back a healthy status
 - Now you can create a cluster within this new region
-    - The cluster should report back as healthy
-    - Note: make sure your k8s node pool match with qdrant cluster size you request
+  - The cluster should report back as healthy
+  - Note: make sure your k8s node pool match with qdrant cluster size you request
 
 
   
