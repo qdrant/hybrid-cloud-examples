@@ -16,6 +16,7 @@ It is used for Qdrant Cloud hybrid vector database setup example.
 - Go to `terraform` folder and run:
   - `terraform init`
   - `terraform apply`
+  - run `gcloud container clusters get-credentials qdrant-hybrid-example --region europe-west1 --project <your-project-id>` This command will generate kubeconfig for cluster
 
 ### Setup Private region 
 After cluster is ready login to https://cloud.qdrant.io/
