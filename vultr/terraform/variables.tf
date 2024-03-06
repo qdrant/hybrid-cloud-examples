@@ -18,7 +18,7 @@ variable "label" {
 variable "k8s_version" {
   description = "The version of your VKE cluster you want deployed"
   type        = string
-  default     = "v1.29.1+1"
+  default     = "v1.29.2+1"
 }
 
 variable "v_subnet" {
