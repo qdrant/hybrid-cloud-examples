@@ -1,4 +1,4 @@
-resource "vultr_vpc" "this" {
+resource "vultr_vpc" "vpc" {
   description = "Qdrant VPC"
   region = var.region
   v4_subnet  = var.v_subnet
