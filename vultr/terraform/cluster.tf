@@ -1,4 +1,4 @@
-resource "vultr_kubernetes" "this" {
+resource "vultr_kubernetes" "cluster" {
   region  = var.region
   label   = var.label
   version = var.k8s_version
@@ -13,12 +13,7 @@ resource "vultr_kubernetes" "this" {
   }
 }
 
-resource "vultr_kubernetes_node_pools" "this" {
-  cluster_id = vultr_kubernetes.this.id
-  node_quantity = 1
-  plan = var.node_pools_plan
-  label = var.label
-  auto_scaler = var.auto_scaler
-  min_nodes = 1
-  max_nodes = 10
+resource "local_file" "kubeconfig" {
+  content  = base64decode(vultr_kubernetes.cluster.kube_config)
+  filename = "kubeconfig"
 }
