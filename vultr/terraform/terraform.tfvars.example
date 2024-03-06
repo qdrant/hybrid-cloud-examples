@@ -8,7 +8,7 @@ region = "ewr"
 label = "qdrant-example"
 
 # The version of your VKE cluster you want deployed
-k8s_version = "v1.29.1+1"
+k8s_version = "v1.29.2+1"
 
 # The virtual subnet for your VKE cluster
 v_subnet = "192.168.0.0"
