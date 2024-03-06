@@ -1,0 +1,44 @@
+ibmcloud_api_key = ""
+
+# Cluster name
+cluster_name = "qdrant-hybrid-example"
+
+# Cluster name
+prefix = "qdrant"
+
+# The location of the cluster
+region = "us-south"
+
+# List of subnets for the vpc. For each item in each array, a subnet will be created. Items can be either CIDR blocks or total ipv4 addressess. Public gateways will be enabled only in zones where a gateway has been created
+subnets = {
+  "zone-1": [
+    {
+      "acl_name": "vpc-acl",
+      "cidr": "10.10.10.0/24",
+      "name": "subnet-a",
+      "no_addr_prefix": false,
+      "public_gateway": true
+    }
+  ],
+  "zone-2": [
+    {
+      "acl_name": "vpc-acl",
+      "cidr": "10.20.10.0/24",
+      "name": "subnet-b",
+      "no_addr_prefix": false,
+      "public_gateway": true
+    }
+  ],
+  "zone-3": [
+    {
+      "acl_name": "vpc-acl",
+      "cidr": "10.30.10.0/24",
+      "name": "subnet-c",
+      "no_addr_prefix": false,
+      "public_gateway": false
+    }
+  ]
+}
+
+# Cluster name
+vpc_name = "example"
