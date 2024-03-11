@@ -6,8 +6,10 @@ module "resource-group" {
 }
 
 module "cluster" {
-  source  = "terraform-ibm-modules/base-ocp-vpc/ibm"
-  version = "3.18.3"
+  source  = "./modules/cluster"
+
+#  source  = "terraform-ibm-modules/base-ocp-vpc/ibm"
+#  version = "3.18.3"
 
   ibmcloud_api_key     = var.ibmcloud_api_key
   cluster_name         = var.cluster_name
