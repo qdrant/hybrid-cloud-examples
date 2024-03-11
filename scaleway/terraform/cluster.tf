@@ -15,3 +15,8 @@ resource "scaleway_k8s_pool" "current" {
   size       = var.pool_size
   tags = var.tags
 }
+
+resource "local_file" "kubeconfig" {
+  content  = base64decode(scaleway_k8s_cluster.this.kubeconfig)
+  filename = "kubeconfig"
+}

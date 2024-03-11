@@ -2,7 +2,7 @@
 cluster_name = "qdrant-hybrid-example"
 
 # The version of the Kubernetes cluster.
-kubernetes_version = "1.29"
+kubernetes_version = "1.29.1"
 
 # The Container Network Interface (CNI) for the Kubernetes cluster.
 cni = "cilium"
@@ -24,7 +24,7 @@ tags = ["qdrant", "demo", "k8s", "terraform"]
 subnet_cidr = "192.168.0.0/22"
 
 # The region that will be used as the default value for all resources. (fr-par if none specified)
-region = "fra1"
+region = "fr-par"
 
 # Scaleway secret key.
 secret_key = ""
