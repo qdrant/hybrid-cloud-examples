@@ -5,7 +5,8 @@ module "eks" {
   cluster_name    = var.cluster_name
   cluster_version = var.kubernetes_version_prefix
 
-  cluster_endpoint_public_access  = true
+  cluster_endpoint_public_access = true
+  enable_irsa                    = true
 
   cluster_addons = {
     coredns = {
@@ -17,10 +18,14 @@ module "eks" {
     vpc-cni = {
       most_recent = true
     }
+    aws-ebs-csi-driver = {
+      most_recent = true
+      service_account_role_arn = module.ebs_controller_role.iam_role_arn
+    }
   }
 
-  vpc_id                   = module.vpc.vpc_id
-  subnet_ids               = module.vpc.private_subnets
+  vpc_id     = module.vpc.vpc_id
+  subnet_ids = module.vpc.private_subnets
 
   # EKS Managed Node Group(s)
   eks_managed_node_group_defaults = {
@@ -33,8 +38,11 @@ module "eks" {
       max_size     = 10
       desired_size = 1
 
-      instance_types = ["t3.large","m6i.large", "m5.large", "m5n.large", "m5zn.large"]
+      instance_types = ["t3.large", "m6i.large", "m5.large", "m5n.large", "m5zn.large"]
       capacity_type  = "SPOT"
+      iam_role_additional_policies = {
+        AmazonEBSCSIDriverPolicy = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
+      }
     }
   }
 
@@ -46,3 +54,19 @@ module "eks" {
 
   tags = var.tags
 }
+
+
+
+
+data "aws_eks_cluster_auth" "current" {
+  name = module.eks.cluster_name
+}
+
+#module "ebs_csi_driver_controller" {
+#  source = "DrFaust92/ebs-csi-driver/kubernetes"
+#  version = "3.10.0"
+#
+#  ebs_csi_controller_role_name               = "ebs-csi-driver-controller"
+#  ebs_csi_controller_role_policy_name_prefix = "ebs-csi-driver-policy"
+#  oidc_url                                   = module.eks.cluster_oidc_issuer_url
+#}
