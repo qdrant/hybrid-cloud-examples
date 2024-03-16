@@ -53,7 +53,7 @@ variable "region" {
 variable "aws_profile_name" {
   type        = string
   description = "aws config profile name"
-  default     = "qdrant-stg-v2"
+  default     = "my-profile"
 }
 
 variable "kubernetes_version_prefix" {

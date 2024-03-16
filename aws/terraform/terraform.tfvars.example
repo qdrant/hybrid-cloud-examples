@@ -3,7 +3,7 @@
 auto_scale = true
 
 # aws config profile name
-aws_profile_name = "qdrant-stg-v2"
+aws_profile_name = "my-profile"
 
 # AZs for VPC
 azs = [
