@@ -62,11 +62,3 @@ data "aws_eks_cluster_auth" "current" {
   name = module.eks.cluster_name
 }
 
-#module "ebs_csi_driver_controller" {
-#  source = "DrFaust92/ebs-csi-driver/kubernetes"
-#  version = "3.10.0"
-#
-#  ebs_csi_controller_role_name               = "ebs-csi-driver-controller"
-#  ebs_csi_controller_role_policy_name_prefix = "ebs-csi-driver-policy"
-#  oidc_url                                   = module.eks.cluster_oidc_issuer_url
-#}
