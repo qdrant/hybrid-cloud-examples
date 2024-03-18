@@ -10,6 +10,7 @@
 
 | Name | Version |
 |------|---------|
+| <a name="provider_local"></a> [local](#provider\_local) | 2.4.1 |
 | <a name="provider_vultr"></a> [vultr](#provider\_vultr) | 2.19.0 |
 
 ## Modules
@@ -20,9 +21,9 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [vultr_kubernetes.this](https://registry.terraform.io/providers/vultr/vultr/2.19.0/docs/resources/kubernetes) | resource |
-| [vultr_kubernetes_node_pools.this](https://registry.terraform.io/providers/vultr/vultr/2.19.0/docs/resources/kubernetes_node_pools) | resource |
-| [vultr_vpc.this](https://registry.terraform.io/providers/vultr/vultr/2.19.0/docs/resources/vpc) | resource |
+| [local_file.kubeconfig](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
+| [vultr_kubernetes.cluster](https://registry.terraform.io/providers/vultr/vultr/2.19.0/docs/resources/kubernetes) | resource |
+| [vultr_vpc.vpc](https://registry.terraform.io/providers/vultr/vultr/2.19.0/docs/resources/vpc) | resource |
 
 ## Inputs
 
@@ -30,7 +31,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_api_key"></a> [api\_key](#input\_api\_key) | This is the Vultr API key | `string` | n/a | yes |
 | <a name="input_auto_scaler"></a> [auto\_scaler](#input\_auto\_scaler) | Enable or disable auto-scaling for the VKE cluster | `bool` | `true` | no |
-| <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | The version of your VKE cluster you want deployed | `string` | `"v1.29.1+1"` | no |
+| <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | The version of your VKE cluster you want deployed | `string` | `"v1.29.2+1"` | no |
 | <a name="input_label"></a> [label](#input\_label) | The VKE cluster's label. | `string` | `"qdrant-example"` | no |
 | <a name="input_max_node"></a> [max\_node](#input\_max\_node) | The maximum number of nodes in the VKE cluster | `number` | `10` | no |
 | <a name="input_min_node"></a> [min\_node](#input\_min\_node) | The minimum number of nodes in the VKE cluster | `number` | `1` | no |

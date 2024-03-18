@@ -1,36 +1,40 @@
-# The name for the Kubernetes cluster.
-cluster_name = "qdrant-hybrid-example"
 
-# The version of the Kubernetes cluster.
-kubernetes_version = "1.29.1"
+# Scaleway access key
+access_key = ""
+
+# Project ID
+project_id = ""
+
+# Scaleway secret key
+secret_key = ""
+
+# The name for the Kubernetes cluster.
+cluster_name = "qdrant-example"
 
 # The Container Network Interface (CNI) for the Kubernetes cluster.
 cni = "cilium"
 
-# Delete additional resources like block volumes, load-balancers, and the cluster's private network (if empty) that were created in Kubernetes on cluster deletion.
-# Important: Setting this field to true means that you will lose all your cluster data and network configuration when you delete your cluster. If you prefer keeping it, you should instead set it as false.
+# Delete additional resources like block volumes, load-balancers and the cluster's private network (if empty) that were created in Kubernetes on cluster deletion. ~> Important: Setting this field to true means that you will lose all your cluster data and network configuration when you delete your cluster. If you prefer keeping it, you should instead set it as false.
 delete_additional_resources = false
+
+# The version of the Kubernetes cluster.
+kubernetes_version = "1.29.1"
 
 # The commercial type of the pool instances. Instances with insufficient memory are not eligible (DEV1-S, PLAY2-PICO, STARDUST). external is a special node type used to provision from other Cloud providers.
 node_type = "DEV1-M"
 
-# The size of the pool.
+# The size of the pool
 pool_size = 1
 
-# Resource tags.
-tags = ["qdrant", "demo", "k8s", "terraform"]
+# The region that will be used as default value for all resources. (fr-par if none specified)
+region = "fr-par"
 
 # The IPv4 subnet to associate with the private network.
 subnet_cidr = "192.168.0.0/22"
 
-# The region that will be used as the default value for all resources. (fr-par if none specified)
-region = "fr-par"
-
-# Scaleway secret key.
-secret_key = ""
-
-# Scaleway access key.
-access_key = ""
-
-# Project ID.
-project_id = ""
+# Resource tags
+tags = [
+  "demo",
+  "k8s",
+  "terraform"
+]

@@ -10,7 +10,8 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.34.1 |
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.36.0 |
+| <a name="provider_local"></a> [local](#provider\_local) | 2.5.1 |
 
 ## Modules
 
@@ -23,6 +24,7 @@ No modules.
 | [digitalocean_kubernetes_cluster.qdrant_example](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/kubernetes_cluster) | resource |
 | [digitalocean_kubernetes_node_pool.node_pools](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/kubernetes_node_pool) | resource |
 | [digitalocean_vpc.example_vpc](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/vpc) | resource |
+| [local_file.kubeconfig](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [digitalocean_kubernetes_versions.k8s](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/data-sources/kubernetes_versions) | data source |
 | [digitalocean_sizes.k8s](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/data-sources/sizes) | data source |
 

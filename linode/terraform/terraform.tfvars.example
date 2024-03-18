@@ -1,32 +1,35 @@
-# The region where the Kubernetes cluster will be deployed.
-region = "us-iad"
 
-# The label of the Kubernetes cluster. This field can only contain ASCII letters, digits, and dashes.
-label = "qdrant-example"
-
-# The IPv4 range of the subnet for the Kubernetes cluster in CIDR format.
-v_subnet = "10.0.0.0/24"
-
-# The desired Kubernetes version for the cluster in the format of major.minor (e.g., 1.21).
-k8s_version = "1.28"
-
-# The Linode API key for authentication.
+# This is the Linode API key
 token = ""
 
-# The region where the Kubernetes cluster will be hosted.
+# This Kubernetes cluster's location
 cluster_region = "us-central"
 
-# An array of tags applied to the Kubernetes cluster for organizational purposes.
-tags = ["qdrant"]
+# The desired Kubernetes version for this Kubernetes cluster in the format of major.minor (e.g. 1.21), and the latest supported patch version will be deployed.
+k8s_version = "1.28"
+
+# The label of the VPC. This field can only contain ASCII letters, digits and dashes.
+label = "qdrant-example"
+
+# The maximum number of nodes to autoscale to.
+max_pool_size = 10
+
+# The minimum number of nodes to autoscale to.
+min_pool_size = 3
+
+# The number of nodes in the Node Pool. If undefined with an autoscaler the initial node count will equal the autoscaler minimum.
+pool_count = 3
 
 # A Linode Type for all of the nodes in the Node Pool.
 pool_type = "g6-standard-2"
 
-# The minimum number of nodes in the Node Pool.
-min_pool_size = 3
+# The region of the VPC
+region = "us-iad"
 
-# The maximum number of nodes in the Node Pool.
-max_pool_size = 10
+# An array of tags applied to the Kubernetes cluster. Tags are case-insensitive and are for organizational purposes only.
+tags = [
+  "qdrant"
+]
 
-# The initial number of nodes in the Node Pool. If undefined with an autoscaler, it will equal the autoscaler minimum.
-pool_count = 3
+# The IPv4 range of this subnet in CIDR format.
+v_subnet = "10.0.0.0/24"
