@@ -5,14 +5,14 @@
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
-| <a name="requirement_helm"></a> [helm](#requirement\_helm) | ~> 2.6 |
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | ~> 2.27 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.40.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.42.0 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.27.0 |
 
 ## Modules
 
@@ -20,21 +20,20 @@
 |------|--------|---------|
 | <a name="module_ebs_controller_role"></a> [ebs\_controller\_role](#module\_ebs\_controller\_role) | terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc | 4.24.1 |
 | <a name="module_eks"></a> [eks](#module\_eks) | terraform-aws-modules/eks/aws | ~> 20.0 |
-| <a name="module_eks-cluster-autoscaler"></a> [eks-cluster-autoscaler](#module\_eks-cluster-autoscaler) | lablabs/eks-cluster-autoscaler/aws | 2.2.0 |
 | <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-aws-modules/vpc/aws | 5.5.3 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
+| [kubernetes_annotations.default-storageclass](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/annotations) | resource |
+| [kubernetes_storage_class_v1.gp2-resize](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/storage_class_v1) | resource |
 | [aws_eks_cluster_auth.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster_auth) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_eks_access_entry"></a> [eks\_access\_entry](#input\_eks\_access\_entry) | n/a | `any` | n/a | yes |
-| <a name="input_auto_scale"></a> [auto\_scale](#input\_auto\_scale) | Enable cluster autoscaling | `bool` | `true` | no |
 | <a name="input_aws_profile_name"></a> [aws\_profile\_name](#input\_aws\_profile\_name) | aws config profile name | `string` | `"my-profile"` | no |
 | <a name="input_azs"></a> [azs](#input\_azs) | AZs for VPC | `list(string)` | <pre>[<br>  "us-east-1a",<br>  "us-east-1b",<br>  "us-east-1c"<br>]</pre> | no |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Cluster name | `string` | `"qdrant-cluster-example"` | no |
