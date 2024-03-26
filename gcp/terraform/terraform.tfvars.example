@@ -1,0 +1,95 @@
+
+# Google cloud Project ID
+project_id = "my-project"
+
+additional_node_pool = {
+  "gp-spot": {
+    "image_type": "COS_CONTAINERD",
+    "labels": {
+      "cores": "c4",
+      "purpose": "general"
+    },
+    "machine_type": "n1-standard-4",
+    "max_node_count": 7,
+    "min_node_count": 0,
+    "preemptible": false,
+    "spot": true,
+    "taint": []
+  }
+}
+
+# List of individual IPs allowd to connect GKE cluster
+allowed_ips_to_k8s = []
+
+auto_create_subnetworks = false
+
+# GKE Cluster name
+cluster_name = "qdrant-hybrid-example"
+
+default_egress_route = [
+  {
+    "description": "route through IGW to access internet",
+    "destination_range": "0.0.0.0/0",
+    "name": "egress-internet",
+    "next_hop_internet": "true",
+    "tags": "egress-inet"
+  }
+]
+
+# List of egress rules. This will be ignored if variable 'rules' is non-empty
+egress_rules = []
+
+# Environment sort name
+env = "stg"
+
+firewall_rules = []
+
+# List of ingress rules. This will be ignored if variable 'rules' is non-empty
+ingress_rules = []
+
+# The number of nodes to create in this cluster's node pool
+initial_node_count = 1
+
+# List of CIDRs allowd to connect to GKE cluster
+master_authorized_networks = []
+
+# The IP range in CIDR notation to use for the hosted master network. This range must not overlap with any other ranges in use within the cluster's network, and it must be a /28 subnet
+master_ipv4_cidr_block = "172.16.0.0/28"
+
+# The minimum version of the master
+min_master_version = "1.27.8-gke.1067004"
+
+# Dynamic or manual  NATs IPs allocation for cloud router
+nat_ip_allocate_option = "MANUAL_ONLY"
+
+# Number of NAT IP for this VPC
+nat_ip_count = 3
+
+# Name of the VPC network
+network_name = "qdrant-example"
+
+# The Kubernetes version on the nodes. Must either be unset or set to the same value as min_master_version on create
+node_version = "1.27.8-gke.1067004"
+
+# Google cloud region
+region = "europe-west1"
+
+# Secondary ranges that will be used in some of the subnets
+secondary_ranges = {}
+
+# List of CIDR range from which ssh will be allowed in the VPC
+ssh_ingress_range = []
+
+# The list of subnets being created
+subnets = [
+  {
+    "subnet_flow_logs": "false",
+    "subnet_flow_logs_interval": "INTERVAL_10_MIN",
+    "subnet_flow_logs_metadata": "INCLUDE_ALL_METADATA",
+    "subnet_flow_logs_sampling": 0.7,
+    "subnet_ip": "172.23.0.0/20",
+    "subnet_name": "qdrant-subnet-01",
+    "subnet_private_access": "true",
+    "subnet_region": "europe-west1"
+  }
+]
