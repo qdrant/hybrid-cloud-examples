@@ -1,4 +1,4 @@
 provider "civo" {
-  token = var.token
+  token  = var.token
   region = var.region
 }

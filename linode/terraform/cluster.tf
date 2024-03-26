@@ -5,7 +5,7 @@ resource "linode_lke_cluster" "cluster" {
   tags        = var.tags
 
   pool {
-    type  = var.pool_type
+    type = var.pool_type
 
     autoscaler {
       min = var.min_pool_size

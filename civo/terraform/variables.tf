@@ -10,19 +10,19 @@ variable "token" {
 }
 
 variable "cluster_name" {
-    description = "The name of the cluster"
-    type        = string
-    default     = "civo-k8s"
+  description = "The name of the cluster"
+  type        = string
+  default     = "civo-k8s"
 }
 
 variable "node_size" {
-    description = "The size of the nodes"
-    type        = string
-    default     = "g4s.kube.medium"
+  description = "The size of the nodes"
+  type        = string
+  default     = "g4s.kube.medium"
 }
 
 variable "node_count" {
-    description = "Node count"
-    type        = string
-    default     = 3
+  description = "Node count"
+  type        = string
+  default     = 3
 }

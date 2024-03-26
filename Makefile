@@ -14,4 +14,4 @@ $(tfvars-targets): tfvars-%: %
 
 fmt: $(fmt-targets)
 $(fmt-targets): fmt-%: %
-	cd $< && terraform fmt
+	cd $< && cd terraform && terraform fmt

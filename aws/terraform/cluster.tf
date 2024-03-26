@@ -61,9 +61,9 @@ data "aws_eks_cluster_auth" "current" {
 }
 
 resource "kubernetes_storage_class_v1" "gp2-resize" {
-  storage_provisioner = "ebs.csi.aws.com"
+  storage_provisioner    = "ebs.csi.aws.com"
   allow_volume_expansion = true
-  volume_binding_mode = "WaitForFirstConsumer"
+  volume_binding_mode    = "WaitForFirstConsumer"
   metadata {
     name = "default-gp2-resize"
     annotations = {
