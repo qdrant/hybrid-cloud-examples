@@ -1,0 +1,53 @@
+# aws config profile name
+aws_profile_name = "my-profile"
+
+# AZs for VPC
+azs = [
+  "us-east-1a",
+  "us-east-1b",
+  "us-east-1c"
+]
+
+# Cluster name
+cluster_name = "qdrant-cluster-example"
+
+# The Kubernetes version prefix to find latest version
+kubernetes_version_prefix = "1.29"
+
+# Autoscaling maximum node capacity
+max_nodes = 9
+
+# Autoscaling Minimum node capacity
+min_nodes = 1
+
+# The number of Droplet instances in the node pool.
+node_count = 1
+
+# private subnets CIDR renage for VPC
+private_subnets = [
+  "10.0.1.0/24",
+  "10.0.2.0/24",
+  "10.0.3.0/24"
+]
+
+# private subnets CIDR renage for VPC
+public_subnets = [
+  "10.0.101.0/24",
+  "10.0.102.0/24",
+  "10.0.103.0/24"
+]
+
+# The location of the cluster
+region = "us-east-1"
+
+# Default tags
+tags = {
+  "Environment": "dev",
+  "Terraform": "true"
+}
+
+# CIDR renage for VPC
+vpc_cidr = "10.0.0.0/16"
+
+# Cluster name VPC
+vpc_name = "qdrant-hybrid-example-vpc"
