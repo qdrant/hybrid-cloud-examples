@@ -18,6 +18,9 @@ module "eks" {
     vpc-cni = {
       most_recent = true
     }
+    snapshot-controller = {
+      most_recent = true
+    }
     aws-ebs-csi-driver = {
       most_recent              = true
       service_account_role_arn = module.ebs_controller_role.iam_role_arn
@@ -34,9 +37,9 @@ module "eks" {
 
   eks_managed_node_groups = {
     example = {
-      min_size     = 1
-      max_size     = 10
-      desired_size = 1
+      min_size     = var.min_nodes
+      max_size     = var.max_nodes
+      desired_size = var.node_count
 
       instance_types = ["t3.large", "m6i.large", "m5.large", "m5n.large", "m5zn.large"]
       capacity_type  = "SPOT"
@@ -50,23 +53,34 @@ module "eks" {
   # To add the current caller identity as an administrator
   enable_cluster_creator_admin_permissions = true
 
-  access_entries = var.eks_access_entry
-
   tags = var.tags
 }
-
-
-
 
 data "aws_eks_cluster_auth" "current" {
   name = module.eks.cluster_name
 }
 
-module "eks-cluster-autoscaler" {
-  source  = "lablabs/eks-cluster-autoscaler/aws"
-  version = "2.2.0"
+resource "kubernetes_storage_class_v1" "gp2-resize" {
+  storage_provisioner = "ebs.csi.aws.com"
+  allow_volume_expansion = true
+  volume_binding_mode = "WaitForFirstConsumer"
+  metadata {
+    name = "default-gp2-resize"
+    annotations = {
+      "storageclass.kubernetes.io/is-default-class" = "true"
+    }
+  }
+}
 
-  cluster_name                     = module.eks.cluster_name
-  cluster_identity_oidc_issuer     = module.eks.cluster_oidc_issuer_url
-  cluster_identity_oidc_issuer_arn = module.eks.oidc_provider_arn
+resource "kubernetes_annotations" "default-storageclass" {
+  api_version = "storage.k8s.io/v1"
+  kind        = "StorageClass"
+  force       = "true"
+
+  metadata {
+    name = "gp2"
+  }
+  annotations = {
+    "storageclass.kubernetes.io/is-default-class" = "false"
+  }
 }

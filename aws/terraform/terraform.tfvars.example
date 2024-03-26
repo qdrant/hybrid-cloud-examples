@@ -1,7 +1,3 @@
-
-# Enable cluster autoscaling
-auto_scale = true
-
 # aws config profile name
 aws_profile_name = "my-profile"
 
@@ -14,23 +10,6 @@ azs = [
 
 # Cluster name
 cluster_name = "qdrant-cluster-example"
-
-eks_access_entry = {
-  "devops": {
-    "policy_associations": {
-      "example": {
-        "access_scope": {
-          "namespaces": [
-            "*"
-          ],
-          "type": "namespace"
-        },
-        "policy_arn": "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
-      }
-    },
-    "principal_arn": "arn:aws:iam::11111111111:user/my-user"
-  }
-}
 
 # The Kubernetes version prefix to find latest version
 kubernetes_version_prefix = "1.29"

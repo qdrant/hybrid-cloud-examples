@@ -74,19 +74,8 @@ variable "min_nodes" {
   description = "Autoscaling Minimum node capacity"
 }
 
-variable "auto_scale" {
-  description = "Enable cluster autoscaling"
-  type        = bool
-  default     = true
-}
-
 variable "max_nodes" {
   default     = 9
   type        = string
   description = "Autoscaling maximum node capacity"
-}
-
-
-variable "eks_access_entry" {
-
 }
