@@ -1,7 +1,7 @@
 output "cluster_id" {
-  value = scaleway_k8s_cluster.this.id
+  value = scaleway_k8s_cluster.cluster.id
 }
 
 output "cluster_apiserver_url" {
-  value = scaleway_k8s_cluster.this.apiserver_url
+  value = scaleway_k8s_cluster.cluster.apiserver_url
 }

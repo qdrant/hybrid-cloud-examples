@@ -17,6 +17,6 @@ resource "scaleway_k8s_pool" "node_pool" {
 }
 
 resource "local_file" "kubeconfig" {
-  content  = base64decode(scaleway_k8s_cluster.cluster.kubeconfig)
+  content  = scaleway_k8s_cluster.cluster.kubeconfig[0].config_file
   filename = "kubeconfig"
 }
