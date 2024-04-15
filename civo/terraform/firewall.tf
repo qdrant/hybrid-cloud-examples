@@ -1,5 +1,5 @@
 resource "civo_firewall" "example-cluster-firewall" {
-  name = var.cluster_name + "-firewall"
+  name = var.cluster_name
   ingress_rule {
     label      = "kubernetes-api-server"
     protocol   = "tcp"
