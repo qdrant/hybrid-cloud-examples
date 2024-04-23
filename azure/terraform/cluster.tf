@@ -42,7 +42,9 @@ module "aks_cluster" {
   net_profile_outbound_type         = "loadBalancer"                                                                # The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are loadBalancer and userDefinedRouting. Defaults to loadBalancer.
   log_analytics_workspace_sku       = "PerGB2018"                                                                   # refer https://azure.microsoft.com/pricing/details/monitor/ for log analytics pricing
   log_analytics_solution_enabled    = true                                                                          # Log analytics solutions are typically software solutions with data visualization and insights tools.
-  control_plane_logs_scrape_enabled = true                                                                          # Scrapes logs of the aks control plane
+  control_plane_logs_scrape_enabled = false
+
+  # Scrapes logs of the aks control plane
   control_plane_monitor_name        = format("%s-%s-aks-control-plane-logs-monitor", var.cluster_name, var.environment) # Control plane logs monitoring such as "kube-apiserver", "cloud-controller-manager", "kube-scheduler"
   additional_tags                   = var.tags
 }
@@ -52,7 +54,7 @@ module "aks_managed_node_pool" {
   source     = "squareops/aks/azurerm//modules/managed_node_pools"
 
   resource_group_name   = azurerm_resource_group.terraform_infra.name
-  orchestrator_version  = var.cluster_name
+  orchestrator_version  = var.kubernetes_version
   location              = azurerm_resource_group.terraform_infra.location
   vnet_subnet_id        = module.vnet.private_subnets
   kubernetes_cluster_id = module.aks_cluster.kubernetes_cluster_id

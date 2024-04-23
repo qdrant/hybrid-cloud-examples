@@ -63,7 +63,7 @@ variable "environment" {
 variable "kubernetes_version" {
   type        = string
   description = "The Kubernetes version"
-  default     = "1.28.5"
+  default     = "1.27.9"
 }
 
 variable "network_plugin" {
