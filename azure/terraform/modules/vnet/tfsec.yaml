@@ -1,0 +1,2 @@
+exclude:
+  - azure-network-no-public-ingress # Ports open for public internet access

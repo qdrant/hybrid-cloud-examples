@@ -8,4 +8,4 @@ Example how to use Azure k8s cluster (AKS) as private region for hybrid qdrant c
 - You configure `az`
     - `az login`
     - ` gcloud auth application-default login --project <your-project-name>`
-- 
+

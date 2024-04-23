@@ -1,0 +1,50 @@
+
+# Cluster name
+cluster_name = "qdrant-cluster-example"
+
+# DNS IP
+dns_service_ip = "10.2.0.100"
+
+# ENV name
+environment = "test"
+
+# The Kubernetes version
+kubernetes_version = "1.27.9"
+
+# Autoscaling maximum node capacity
+max_nodes = 9
+
+# Autoscaling Minimum node capacity
+min_nodes = 1
+
+# You can choose "kubenet(basic)" or "azure(advanced)" refer https://learn.microsoft.com/en-us/azure/aks/concepts-network#kubenet-basic-networking
+network_plugin = "kubenet"
+
+# The number of Droplet instances in the node pool.
+node_count = 1
+
+# CIDR renage for pods
+pod_cidr = "10.1.0.0/16"
+
+public_ssh_key = "ssh-rsa blavbal"
+
+# The location of the cluster
+region = "Germany West Central"
+
+# Resource name
+resource_name = "qdrant-demo-test"
+
+# CIDR renage for service
+service_cidr = "10.2.0.0/16"
+
+# Default tags
+tags = {
+  "Environment": "dev",
+  "Terraform": "true"
+}
+
+# CIDR renage for VPC
+vpc_cidr = "10.0.0.0/16"
+
+# Cluster name VPC
+vpc_name = "qdrant-hybrid-example-vpc"

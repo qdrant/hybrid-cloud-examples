@@ -5,7 +5,9 @@ resource "azurerm_resource_group" "terraform_infra" {
 }
 
 module "vnet" {
-  source     = "squareops/vnet/azurerm"
+#  source     = "squareops/vnet/azurerm"
+  source     = "./modules/vnet"
+
 
   name                         = var.vpc_name
   address_space                = var.vpc_cidr
