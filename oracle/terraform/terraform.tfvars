@@ -1,0 +1,20 @@
+tenancy_ocid                     = "your-tenancy-ocid" //FIXME: Replace with your tenancy OCID
+region                           = "eu-frankfurt-1"
+user_ocid                        = "your-user-ocid" //FIXME: Replace with your user OCID
+fingerprint                      = "your-fingerprint" //FIXME: Replace with your fingerprint
+private_key_path                 = "/path/to/your/private_key.pem" //FIXME: Replace with the path to your private key
+oci_node_pool_node_shape         = "VM.Standard2.1"
+oci_node_pool_node_image_name    = "ocid1.image.oc1.eu-frankfurt-1.aaaaaaaamwc7ozp4edhlcc5n76o2fjqya3auhugwpgfha3wgbk64jvx43kga"
+oke_compartment_name             = "OKE_Compartment"
+oke_compartment_description      = "Compartment for Oracle Kubernetes Engine"
+oke_vcn_cidr_block               = "10.0.0.0/16"
+oke_subnet1_cidr_block           = "10.0.1.0/24"
+oke_subnet2_cidr_block           = "10.0.2.0/24"
+nodepool_subnet1_cidr_block      = "10.0.3.0/24"
+nodepool_subnet2_cidr_block      = "10.0.4.0/24"
+cluster_name                     = "my_oke_cluster"
+kubernetes_version               = "v1.29.1"
+nodepool_name                    = "tfPool"
+nodepool_quantity_per_subnet     = 2
+security_list_display_name       = "AllowAccess"
+
