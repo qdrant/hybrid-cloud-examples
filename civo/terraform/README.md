@@ -30,7 +30,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_token"></a> [token](#input\_token) | This is the Linode API key | `string` | n/a | yes |
+| <a name="input_token"></a> [token](#input\_token) | This is the Civo API key | `string` | n/a | yes |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | The name of the cluster | `string` | `"civo-k8s"` | no |
 | <a name="input_node_count"></a> [node\_count](#input\_node\_count) | Node count | `string` | `3` | no |
 | <a name="input_node_size"></a> [node\_size](#input\_node\_size) | The size of the nodes | `string` | `"g4s.kube.medium"` | no |

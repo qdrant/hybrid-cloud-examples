@@ -5,7 +5,7 @@ variable "region" {
 }
 
 variable "token" {
-  description = "This is the Linode API key"
+  description = "This is the Civo API key"
   type        = string
 }
 

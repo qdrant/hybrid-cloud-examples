@@ -1,5 +1,5 @@
 
-# This is the Linode API key
+# This is the Civo API key
 token = ""
 
 # The name of the cluster
