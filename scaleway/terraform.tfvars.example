@@ -1,0 +1,27 @@
+
+# Scaleway access key
+access_key = ""
+
+# Project ID
+project_id = ""
+
+# Scaleway secret key
+secret_key = ""
+
+# The version of the Kubernetes cluster.
+kubernetes_version = "1.29.1"
+
+# The commercial type of the pool instances. Instances with insufficient memory are not eligible (DEV1-S, PLAY2-PICO, STARDUST). external is a special node type used to provision from other Cloud providers.
+node_type = "DEV1-M"
+
+# The size of the pool
+pool_size = 1
+
+# The prefix for all resources
+prefix = "example"
+
+# The region that will be used as default value for all resources. (fr-par if none specified)
+region = "fr-par"
+
+# The IPv4 subnet to associate with the private network.
+subnet_cidr = "192.168.0.0/22"

@@ -1,0 +1,18 @@
+
+# This is the Vultr API key
+api_key = ""
+
+# The version of your VKE cluster you want deployed
+k8s_version = "v1.30.0+1"
+
+# The number of nodes in the VKE cluster
+node_count = 3
+
+# The plan for the node pools in your VKE cluster
+node_pools_plan = "vc2-4c-8gb"
+
+# The prefix for all resources
+prefix = "example"
+
+# The region your VKE cluster will be deployed in
+region = "ewr"

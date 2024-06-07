@@ -1,17 +1,19 @@
-PROVIDERS = aws civo digitalocean linode ovh scaleway vultr
+PROVIDERS = aws azure civo digitalocean gcp linode ovh scaleway vultr
 
 docs-targets = $(addprefix docs-, $(PROVIDERS))
 tfvars-targets = $(addprefix tfvars-, $(PROVIDERS))
 fmt-targets = $(addprefix fmt-, $(PROVIDERS))
 
+all: docs fmt tfvars
+
 docs: $(docs-targets)
 $(docs-targets): docs-%: %
-	cd $< && cd terraform && terraform-docs -c ../../.tf-docs-readme.yml .
+	cd $< && terraform-docs -c ../.tf-docs-readme.yml .
 
 tfvars: $(tfvars-targets)
 $(tfvars-targets): tfvars-%: %
-	cd $< && cd terraform && terraform-docs -c ../../.tf-docs-tfvars.yml .
+	cd $< && terraform-docs -c ../.tf-docs-tfvars.yml .
 
 fmt: $(fmt-targets)
 $(fmt-targets): fmt-%: %
-	cd $< && cd terraform && terraform fmt
+	cd $< && terraform fmt

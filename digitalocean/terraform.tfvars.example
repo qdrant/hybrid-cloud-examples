@@ -1,0 +1,18 @@
+
+# Provide a token to access Digital Ocean
+do_token = ""
+
+# The Kubernetes version prefix to find latest version
+kubernetes_version_prefix = "1.29"
+
+# The number of Droplet instances in the node pool.
+node_count = 1
+
+# The prefix for all resources
+prefix = "example"
+
+# The location of the cluster
+region = "fra1"
+
+# The slug identifier for the type of Droplet to be used as workers in the node pool.
+size = "s-4vcpu-8gb"

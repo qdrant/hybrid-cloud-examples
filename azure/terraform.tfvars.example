@@ -1,0 +1,24 @@
+
+# The Azure client ID
+azure_client_id = ""
+
+# The Azure client secret
+azure_client_secret = ""
+
+# The Azure subscription ID
+azure_subscription_id = ""
+
+# The Azure tenant ID
+azure_tenant_id = ""
+
+# Azure location used for all resources
+azure_location = "East US"
+
+# Instance type used for all nodes
+instance_type = "Standard_DS2_v2"
+
+# Node count
+node_count = 3
+
+# The prefix for all resources
+prefix = "example"

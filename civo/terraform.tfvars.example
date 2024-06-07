@@ -1,0 +1,15 @@
+
+# The Civo API key
+token = ""
+
+# Node count
+node_count = 3
+
+# The size of the nodes
+node_size = "g4s.kube.medium"
+
+# The prefix for all resources
+prefix = "example"
+
+# The region of the cluster
+region = "LON1"

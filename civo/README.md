@@ -1,30 +1,47 @@
 # Qdrant Hybrid Cloud Example for Civo
 
-Example how to use Civo k8s cluster as private region for hybrid qdrant cloud. 
+This Terraform module creates an example infrastructure for Qdrant Hybrid Cloud using Civo.
 
-### Apply terraform
-This terraform code is for a basic firewall and k8s cluster setup in Civo.
-It is used for Qdrant Cloud hybrid vector database setup example.
-- Go to `terraform` folder and run:
-  - `terraform init`
-  - `terraform apply`
+<!-- BEGIN_TF_DOCS -->
+## Requirements
 
-### Setup Private region 
-After cluster is ready login to https://cloud.qdrant.io/
-- Go to "Private regions"
-- Create a "Private region", pick a name and a Kubernetes namespace. All other settings should be able to stay as default
-- Click 'Generate installation Command' button. It will generate `kubectl` and `helm` commands like this: 
-``` bash
-kubectl create namespace delete-me
-kubectl --namespace delete-me create secret docker-registry qdrant-registry-creds
-kubectl --namespace delete-me create secret generic qdrant-cloud-creds --from-literal=access-key='*'
-helm install qdrant-cloud-agent
-```
-- Execute this against the created Kubernetes cluster to deploy the Qdrant cloud agent and Qdrant operator
-- The agent should connect back to Qdrant cloud, install the operator and report back a healthy status
-- Now you can create a cluster within this new region
-  - The cluster should report back as healthy
-  - Note: make sure your k8s node pool match with qdrant cluster size you request
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1 |
+| <a name="requirement_civo"></a> [civo](#requirement\_civo) | 1.0.39 |
 
+## Providers
 
+| Name | Version |
+|------|---------|
+| <a name="provider_civo"></a> [civo](#provider\_civo) | 1.0.39 |
+| <a name="provider_local"></a> [local](#provider\_local) | 2.5.1 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [civo_firewall.qdrant-hybrid-cloud-firewall](https://registry.terraform.io/providers/civo/civo/1.0.39/docs/resources/firewall) | resource |
+| [civo_kubernetes_cluster.qdrant-hybrid-cloud](https://registry.terraform.io/providers/civo/civo/1.0.39/docs/resources/kubernetes_cluster) | resource |
+| [local_file.kubeconfig](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
+| [civo_size.node_size](https://registry.terraform.io/providers/civo/civo/1.0.39/docs/data-sources/size) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_token"></a> [token](#input\_token) | The Civo API key | `string` | n/a | yes |
+| <a name="input_node_count"></a> [node\_count](#input\_node\_count) | Node count | `string` | `3` | no |
+| <a name="input_node_size"></a> [node\_size](#input\_node\_size) | The size of the nodes | `string` | `"g4s.kube.medium"` | no |
+| <a name="input_prefix"></a> [prefix](#input\_prefix) | The prefix for all resources | `string` | `"example"` | no |
+| <a name="input_region"></a> [region](#input\_region) | The region of the cluster | `string` | `"LON1"` | no |
+
+## Outputs
+
+No outputs.
+<!-- END_TF_DOCS -->
   

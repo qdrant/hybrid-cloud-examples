@@ -1,32 +1,61 @@
 # Qdrant Hybrid Cloud Example for AWS
 
-Example how to use AWS EKS cluster as private region for hybrid qdrant cloud. 
+This Terraform module creates an example infrastructure for Qdrant Hybrid Cloud using AWS.
 
-### Apply terraform
-This terraform code is for a basic VPC and k8s cluster setup in a AWS project.
-It is used for Qdrant Cloud hybrid vector database setup example.
-- Go to `terraform` folder and run:
-  - `terraform init`
-  - `terraform apply`
+Use ```aws eks update-kubeconfig --region us-east-1  --name  qdrant-cluster-example``` to get a kubeconfig.
 
+<!-- BEGIN_TF_DOCS -->
+## Requirements
 
-Use: ```aws eks update-kubeconfig --region us-east-1  --name  qdrant-cluster-example``` to update your kubeconfig
-### Setup Private region 
-After cluster is ready login to https://cloud.qdrant.io/
-- Go to "Private regions"
-- Create a "Private region", pick a name and a Kubernetes namespace. All other settings should be able to stay as default
-- Click 'Generate installation Command' button. It will generate `kubectl` and `helm` commands like this: 
-``` bash
-kubectl create namespace delete-me
-kubectl --namespace delete-me create secret docker-registry qdrant-registry-creds
-kubectl --namespace delete-me create secret generic qdrant-cloud-creds --from-literal=access-key='*'
-helm install qdrant-cloud-agent
-```
-- Execute this against the created Kubernetes cluster to deploy the Qdrant cloud agent and Qdrant operator
-- The agent should connect back to Qdrant cloud, install the operator and report back a healthy status
-- Now you can create a cluster within this new region
-  - The cluster should report back as healthy
-  - Note: make sure your k8s node pool match with qdrant cluster size you request
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | ~> 2.27 |
 
+## Providers
 
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.42.0 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.27.0 |
+
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_ebs_controller_role"></a> [ebs\_controller\_role](#module\_ebs\_controller\_role) | terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc | 4.24.1 |
+| <a name="module_eks"></a> [eks](#module\_eks) | terraform-aws-modules/eks/aws | ~> 20.0 |
+| <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-aws-modules/vpc/aws | 5.5.3 |
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [kubernetes_annotations.default-storageclass](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/annotations) | resource |
+| [kubernetes_storage_class_v1.gp2-resize](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/storage_class_v1) | resource |
+| [aws_eks_cluster_auth.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster_auth) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_aws_profile_name"></a> [aws\_profile\_name](#input\_aws\_profile\_name) | aws config profile name | `string` | `"my-profile"` | no |
+| <a name="input_azs"></a> [azs](#input\_azs) | AZs for VPC | `list(string)` | <pre>[<br>  "us-east-1a",<br>  "us-east-1b",<br>  "us-east-1c"<br>]</pre> | no |
+| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Cluster name | `string` | `"qdrant-cluster-example"` | no |
+| <a name="input_kubernetes_version_prefix"></a> [kubernetes\_version\_prefix](#input\_kubernetes\_version\_prefix) | The Kubernetes version prefix to find latest version | `string` | `"1.29"` | no |
+| <a name="input_max_nodes"></a> [max\_nodes](#input\_max\_nodes) | Autoscaling maximum node capacity | `string` | `9` | no |
+| <a name="input_min_nodes"></a> [min\_nodes](#input\_min\_nodes) | Autoscaling Minimum node capacity | `string` | `1` | no |
+| <a name="input_node_count"></a> [node\_count](#input\_node\_count) | The number of Droplet instances in the node pool. | `number` | `1` | no |
+| <a name="input_private_subnets"></a> [private\_subnets](#input\_private\_subnets) | private subnets CIDR renage for VPC | `list(string)` | <pre>[<br>  "10.0.1.0/24",<br>  "10.0.2.0/24",<br>  "10.0.3.0/24"<br>]</pre> | no |
+| <a name="input_public_subnets"></a> [public\_subnets](#input\_public\_subnets) | private subnets CIDR renage for VPC | `list(string)` | <pre>[<br>  "10.0.101.0/24",<br>  "10.0.102.0/24",<br>  "10.0.103.0/24"<br>]</pre> | no |
+| <a name="input_region"></a> [region](#input\_region) | The location of the cluster | `string` | `"us-east-1"` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Default tags | `map(string)` | <pre>{<br>  "Environment": "dev",<br>  "Terraform": "true"<br>}</pre> | no |
+| <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | CIDR renage for VPC | `string` | `"10.0.0.0/16"` | no |
+| <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | Cluster name VPC | `string` | `"qdrant-hybrid-example-vpc"` | no |
+
+## Outputs
+
+No outputs.
+<!-- END_TF_DOCS -->
   

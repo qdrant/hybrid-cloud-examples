@@ -1,0 +1,24 @@
+
+# This is the Linode API key
+token = ""
+
+# This Kubernetes cluster's location
+cluster_region = "us-central"
+
+# The desired Kubernetes version for this Kubernetes cluster in the format of major.minor (e.g. 1.21), and the latest supported patch version will be deployed.
+k8s_version = "1.28"
+
+# The number of nodes in the Node Pool.
+pool_count = 3
+
+# A Linode Type for all of the nodes in the Node Pool.
+pool_type = "g6-standard-2"
+
+# The prefix for all resources
+prefix = "example"
+
+# The region of the VPC
+region = "us-iad"
+
+# The IPv4 range of this subnet in CIDR format.
+v_subnet = "10.0.0.0/24"
