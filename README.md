@@ -29,6 +29,7 @@ The following Terraform modules can be used to set up a basic Kubernetes cluster
 - [OVH](./ovh)
 - [Scaleway](./scaleway)
 - [Vultr](./vultr)
+- [Gcore](./gcore)
 
 This list is not exhaustive, and you can use any Kubernetes cluster on any infrastructure that meets the [requirements](https://qdrant.tech/documentation/hybrid-cloud/).
 

@@ -1,4 +1,4 @@
-PROVIDERS = aws azure civo digitalocean gcp linode ovh scaleway vultr
+PROVIDERS = aws azure civo digitalocean gcore gcp linode ovh scaleway vultr
 
 docs-targets = $(addprefix docs-, $(PROVIDERS))
 tfvars-targets = $(addprefix tfvars-, $(PROVIDERS))

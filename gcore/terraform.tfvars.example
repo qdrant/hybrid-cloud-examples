@@ -1,0 +1,18 @@
+
+# API token for Gcore API
+permanent_api_token = ""
+
+# The flavor of the instance
+flavor = "g1-standard-4-8"
+
+# The number of nodes in the cluster
+node_count = 1
+
+# The prefix for all resources
+prefix = "example"
+
+# The name of the Gcore project
+project_name = "Default"
+
+# The region for the setup
+region = "Luxembourg-2"
