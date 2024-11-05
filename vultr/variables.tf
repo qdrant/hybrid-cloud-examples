@@ -16,7 +16,7 @@ variable "region" {
 variable "k8s_version" {
   description = "The version of your VKE cluster you want deployed"
   type        = string
-  default     = "v1.30.0+1"
+  default     = "v1.31.0+1"
 }
 
 variable "node_pools_plan" {

@@ -33,7 +33,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_api_key"></a> [api\_key](#input\_api\_key) | This is the Vultr API key | `string` | n/a | yes |
-| <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | The version of your VKE cluster you want deployed | `string` | `"v1.30.0+1"` | no |
+| <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | The version of your VKE cluster you want deployed | `string` | `"v1.31.0+1"` | no |
 | <a name="input_node_count"></a> [node\_count](#input\_node\_count) | The number of nodes in the VKE cluster | `number` | `3` | no |
 | <a name="input_node_pools_plan"></a> [node\_pools\_plan](#input\_node\_pools\_plan) | The plan for the node pools in your VKE cluster | `string` | `"vc2-4c-8gb"` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | The prefix for all resources | `string` | `"example"` | no |

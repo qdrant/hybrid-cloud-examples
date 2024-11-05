@@ -19,7 +19,7 @@ variable "v_subnet" {
 variable "k8s_version" {
   description = "The desired Kubernetes version for this Kubernetes cluster in the format of major.minor (e.g. 1.21), and the latest supported patch version will be deployed."
   type        = string
-  default     = "1.28"
+  default     = "1.31"
 }
 
 variable "token" {

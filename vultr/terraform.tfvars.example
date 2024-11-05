@@ -3,7 +3,7 @@
 api_key = ""
 
 # The version of your VKE cluster you want deployed
-k8s_version = "v1.30.0+1"
+k8s_version = "v1.31.0+1"
 
 # The number of nodes in the VKE cluster
 node_count = 3

@@ -34,7 +34,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_token"></a> [token](#input\_token) | This is the Linode API key | `string` | n/a | yes |
 | <a name="input_cluster_region"></a> [cluster\_region](#input\_cluster\_region) | This Kubernetes cluster's location | `string` | `"us-central"` | no |
-| <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | The desired Kubernetes version for this Kubernetes cluster in the format of major.minor (e.g. 1.21), and the latest supported patch version will be deployed. | `string` | `"1.28"` | no |
+| <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | The desired Kubernetes version for this Kubernetes cluster in the format of major.minor (e.g. 1.21), and the latest supported patch version will be deployed. | `string` | `"1.31"` | no |
 | <a name="input_pool_count"></a> [pool\_count](#input\_pool\_count) | The number of nodes in the Node Pool. | `number` | `3` | no |
 | <a name="input_pool_type"></a> [pool\_type](#input\_pool\_type) | A Linode Type for all of the nodes in the Node Pool. | `string` | `"g6-standard-2"` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | The prefix for all resources | `string` | `"example"` | no |
